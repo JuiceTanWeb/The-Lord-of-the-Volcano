@@ -11,7 +11,13 @@ config_version=4
 [application]
 
 config/name="The Lord of the Volcano"
+run/main_scene="res://.import/TitleScreen.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=1128
+window/size/height=960
 
 [physics]
 
