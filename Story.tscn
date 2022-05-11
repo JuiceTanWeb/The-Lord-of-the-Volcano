@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://.import/new_theme.tres" type="Theme" id=1]
+
+[node name="Story" type="Node2D"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1128, 960 )
+theme = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]The Lord of the Volcano[/center]
+
+Once upon a time...
+
+
+"
+text = "The Lord of the Volcano
+
+Once upon a time...
+
+
+"
+scroll_following = true

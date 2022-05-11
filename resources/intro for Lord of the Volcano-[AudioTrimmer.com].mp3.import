@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/intro for Lord of the Volcano-[AudioTrimmer.com].mp3-c26d3dd0ab05f2d1ebf948612f27c361.mp3str"
+
+[deps]
+
+source_file="res://resources/intro for Lord of the Volcano-[AudioTrimmer.com].mp3"
+dest_files=[ "res://.import/intro for Lord of the Volcano-[AudioTrimmer.com].mp3-c26d3dd0ab05f2d1ebf948612f27c361.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
