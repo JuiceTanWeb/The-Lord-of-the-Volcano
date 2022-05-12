@@ -1,11 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://resources/ayush/AYUSH_BACK.png" type="Texture" id=1]
 [ext_resource path="res://resources/ayush/AYUSH_SIDE.png" type="Texture" id=2]
 [ext_resource path="res://resources/ayush/AYUSH_FRONT.png" type="Texture" id=3]
-[ext_resource path="res://resources/full_heart.png" type="Texture" id=4]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=5]
-[ext_resource path="res://Hearts.gd" type="Script" id=6]
 [ext_resource path="res://resources/pixil-frame-0.png" type="Texture" id=7]
 [ext_resource path="res://resources/setting tiles/volcano/lava_1.png" type="Texture" id=8]
 [ext_resource path="res://resources/setting tiles/overworld/stone/normal_stone.png" type="Texture" id=9]
@@ -18,8 +16,9 @@
 [ext_resource path="res://resources/setting tiles/volcano/lava_3.png" type="Texture" id=16]
 [ext_resource path="res://resources/setting tiles/volcano/lava_2.png" type="Texture" id=17]
 [ext_resource path="res://resources/setting tiles/volcano/volcano_tile.png" type="Texture" id=18]
+[ext_resource path="res://TextureProgress.gd" type="Script" id=19]
 
-[sub_resource type="TileSet" id=4]
+[sub_resource type="TileSet" id=1]
 0/name = "lava_3.png 0"
 0/texture = ExtResource( 16 )
 0/tex_offset = Vector2( 0, 0 )
@@ -175,12 +174,17 @@
 10/shapes = [  ]
 10/z_index = 0
 
-[sub_resource type="CapsuleShape2D" id=3]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 40.0
 height = 48.0
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default_back",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "default_front",
@@ -190,28 +194,23 @@ animations = [ {
 "loop": true,
 "name": "default_side",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default_back",
-"speed": 5.0
 } ]
 
 [node name="Overworld" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2( 5, 5 )
-tile_set = SubResource( 4 )
+tile_set = SubResource( 1 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 16, 0, 0, 16, 0, 0 )
 format = 1
-tile_data = PoolIntArray( -65540, 7, 0, -65539, 7, 0, -65538, 7, 0, -65537, 7, 0, -131072, 7, 0, -131071, 7, 0, -131070, 7, 0, -131069, 7, 0, -4, 7, 0, -65533, 7, 0, 65532, 7, 0, 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 131068, 7, 0, 196604, 7, 0, 262140, 7, 0, 196616, 7, 0, 327676, 7, 0, 262151, 7, 0, 393212, 7, 0, 327687, 7, 0, 458748, 7, 0, 393223, 7, 0, 524284, 7, 0, 524285, 7, 0, 458759, 7, 0, 589822, 7, 0, 589823, 7, 0, 524288, 7, 0, 524289, 7, 0, 524290, 7, 0, 524291, 7, 0, 524292, 7, 0, 524293, 7, 0, 524294, 7, 0, 524295, 7, 0 )
+tile_data = PoolIntArray( -589828, 7, 0, -589827, 7, 0, -589826, 7, 0, -589825, 10, 0, -655360, 10, 0, -655359, 10, 0, -655358, 10, 0, -655357, 10, 0, -655356, 10, 0, -655355, 10, 0, -655354, 10, 0, -655353, 10, 0, -655352, 10, 0, -655351, 10, 0, -655350, 10, 0, -524292, 7, 0, -524291, 7, 0, -524290, 7, 0, -524289, 10, 0, -589824, 10, 0, -589823, 10, 0, -589822, 10, 0, -589821, 10, 0, -589820, 10, 0, -589819, 10, 0, -589818, 10, 0, -589817, 10, 0, -589816, 10, 0, -589815, 10, 0, -589814, 10, 0, -458756, 7, 0, -458755, 7, 0, -458754, 7, 0, -458753, 10, 0, -524288, 10, 0, -524287, 7, 0, -524286, 7, 0, -524285, 7, 0, -524284, 7, 0, -524283, 7, 0, -524282, 7, 0, -524281, 7, 0, -524280, 7, 0, -524279, 7, 0, -524278, 7, 0, -393220, 7, 0, -393219, 7, 0, -393218, 7, 0, -393217, 10, 0, -458752, 10, 0, -458751, 7, 0, -458750, 7, 0, -458749, 7, 0, -458748, 7, 0, -458747, 7, 0, -458746, 7, 0, -458745, 7, 0, -458744, 7, 0, -458743, 7, 0, -458742, 7, 0, -327684, 7, 0, -327683, 7, 0, -327682, 7, 0, -327681, 10, 0, -393216, 10, 0, -393215, 7, 0, -393214, 7, 0, -393213, 7, 0, -393212, 7, 0, -393211, 7, 0, -393210, 7, 0, -393209, 7, 0, -393208, 7, 0, -393207, 7, 0, -393206, 7, 0, -262148, 7, 0, -262147, 7, 0, -262146, 7, 0, -262145, 10, 0, -327680, 10, 0, -327679, 7, 0, -327678, 7, 0, -327677, 7, 0, -327676, 7, 0, -327675, 7, 0, -327674, 7, 0, -327673, 7, 0, -327672, 7, 0, -327671, 7, 0, -327670, 7, 0, -196612, 7, 0, -196611, 7, 0, -196610, 7, 0, -196609, 10, 0, -262144, 10, 0, -262143, 7, 0, -262142, 7, 0, -262141, 7, 0, -262140, 7, 0, -262139, 7, 0, -262138, 7, 0, -262137, 7, 0, -262136, 7, 0, -262135, 7, 0, -262134, 7, 0, -131076, 7, 0, -131075, 7, 0, -131074, 7, 0, -131073, 10, 0, -196608, 10, 0, -196607, 7, 0, -196606, 7, 0, -196605, 7, 0, -196604, 7, 0, -196603, 7, 0, -196602, 7, 0, -196601, 7, 0, -196600, 7, 0, -196599, 7, 0, -196598, 7, 0, -65540, 7, 0, -65539, 7, 0, -65538, 7, 0, -65537, 10, 0, -131072, 10, 0, -131071, 7, 0, -131070, 7, 0, -131069, 7, 0, -131068, 7, 0, -131067, 7, 0, -131066, 7, 0, -131065, 7, 0, -131064, 7, 0, -131063, 7, 0, -131062, 7, 0, -4, 7, 0, -3, 7, 0, -2, 7, 0, -1, 10, 0, -65536, 10, 0, -65535, 7, 0, -65534, 7, 0, -65533, 7, 0, -65532, 7, 0, -65531, 7, 0, -65530, 7, 0, -65529, 7, 0, -65528, 7, 0, -65527, 7, 0, -65526, 7, 0, 65532, 7, 0, 65533, 10, 0, 65534, 10, 0, 65535, 10, 0, 0, 10, 0, 1, 10, 0, 2, 10, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 8, 7, 0, 9, 7, 0, 10, 7, 0, 131068, 7, 0, 131069, 10, 0, 131070, 10, 0, 131071, 10, 0, 65536, 10, 0, 65537, 10, 0, 65538, 10, 0, 65539, 7, 0, 65540, 7, 0, 65541, 7, 0, 65542, 7, 0, 65543, 7, 0, 65544, 7, 0, 65545, 7, 0, 65546, 7, 0, 196604, 7, 0, 196605, 10, 0, 196606, 10, 0, 196607, 10, 0, 131072, 10, 0, 131073, 10, 0, 131074, 10, 0, 131075, 7, 0, 131076, 7, 0, 131077, 7, 0, 131078, 7, 0, 131079, 7, 0, 131080, 7, 0, 131081, 7, 0, 131082, 7, 0, 262140, 7, 0, 262141, 7, 0, 262142, 7, 0, 262143, 7, 0, 196608, 7, 0, 196609, 7, 0, 196610, 7, 0, 196611, 7, 0, 196612, 7, 0, 196613, 7, 0, 196614, 7, 0, 196615, 7, 0, 196616, 7, 0, 196617, 7, 0, 196618, 7, 0, 327676, 7, 0, 327677, 7, 0, 327678, 7, 0, 327679, 7, 0, 262144, 7, 0, 262145, 7, 0, 262146, 7, 0, 262147, 7, 0, 262148, 7, 0, 262149, 7, 0, 262150, 7, 0, 262151, 7, 0, 262152, 7, 0, 262153, 7, 0, 262154, 7, 0, 393212, 7, 0, 393213, 7, 0, 393214, 7, 0, 393215, 7, 0, 327680, 7, 0, 327681, 7, 0, 327682, 7, 0, 327683, 7, 0, 327684, 7, 0, 327685, 7, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0, 327689, 7, 0, 327690, 7, 0, 458748, 7, 0, 458749, 7, 0, 458750, 7, 0, 458751, 7, 0, 393216, 7, 0, 393217, 7, 0, 393218, 7, 0, 393219, 7, 0, 393220, 7, 0, 393221, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393225, 7, 0, 393226, 7, 0, 524284, 7, 0, 524285, 7, 0, 524286, 7, 0, 524287, 7, 0, 458752, 7, 0, 458753, 7, 0, 458754, 7, 0, 458755, 7, 0, 458756, 7, 0, 458757, 7, 0, 458758, 7, 0, 458759, 7, 0, 458760, 7, 0, 458761, 7, 0, 458762, 7, 0, 589822, 7, 0, 589823, 7, 0, 524288, 7, 0, 524289, 7, 0, 524290, 7, 0, 524291, 7, 0, 524292, 7, 0, 524293, 7, 0, 524294, 7, 0, 524295, 7, 0, 524296, 7, 0, 524297, 7, 0, 524298, 7, 0 )
 
 [node name="Ayush" type="KinematicBody2D" parent="."]
 script = ExtResource( 5 )
 
 [node name="massive hitbox" type="CollisionShape2D" parent="Ayush"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="paparazi" type="Camera2D" parent="Ayush"]
 current = true
@@ -220,7 +219,7 @@ current = true
 
 [node name="Chungus" type="AnimatedSprite" parent="Ayush/Rotate"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 animation = "default_front"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -232,46 +231,16 @@ anchor_bottom = 1.0
 margin_top = -60.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Hearts" type="HBoxContainer" parent="CanvasLayer/UI box"]
-visible = false
-anchor_right = 1.0
-margin_top = 1.0
-margin_bottom = 966.0
-rect_scale = Vector2( 0.75, 0.75 )
-script = ExtResource( 6 )
-
-[node name="Heart1" type="TextureRect" parent="CanvasLayer/UI box/Hearts"]
-margin_right = 80.0
-margin_bottom = 965.0
-rect_min_size = Vector2( 80, 80 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 5
-
-[node name="Heart2" type="TextureRect" parent="CanvasLayer/UI box/Hearts"]
-margin_left = 84.0
-margin_right = 164.0
-margin_bottom = 965.0
-rect_min_size = Vector2( 80, 80 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 5
-
-[node name="Heart3" type="TextureRect" parent="CanvasLayer/UI box/Hearts"]
-margin_left = 168.0
-margin_right = 248.0
-margin_bottom = 965.0
-rect_min_size = Vector2( 80, 80 )
-texture = ExtResource( 4 )
-expand = true
-stretch_mode = 5
-
 [node name="TextureProgress" type="TextureProgress" parent="CanvasLayer/UI box"]
 margin_right = 160.0
 margin_bottom = 40.0
 rect_scale = Vector2( 3, 3 )
 max_value = 3.0
 step = 0.5
-value = 3.0
+value = 0.5
 allow_greater = true
 texture_progress = ExtResource( 7 )
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -55,6 +55,9 @@ margin_bottom = 849.0
 theme = ExtResource( 1 )
 text = "©  2022 Studio Virginia"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Start" type="Label" parent="."]
 margin_left = -3.0
