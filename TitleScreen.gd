@@ -14,5 +14,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
-		get_tree().change_scene("res://Story.tscn")
+		$StartSound.play()
+		for i in range (17):
+			yield($Timer, "timeout")
+		get_tree().change_scene("res://Overworld.tscn")
 #	pass
