@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stone_1.png-04f4da350b37c364d29433092ffd1064.stex"
+path="res://.import/volcano_1.png-6b2ac648ef38bceca6975475819e7ca5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resources/setting tiles/overworld/stone/stone_1.png"
-dest_files=[ "res://.import/stone_1.png-04f4da350b37c364d29433092ffd1064.stex" ]
+source_file="res://resources/setting tiles/volcano/volcano_1.png"
+dest_files=[ "res://.import/volcano_1.png-6b2ac648ef38bceca6975475819e7ca5.stex" ]
 
 [params]
 
