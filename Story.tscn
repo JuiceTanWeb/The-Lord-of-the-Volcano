@@ -1,24 +1,60 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://.import/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Story.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 930 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Scroll"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 8, 12, 15 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 930 ), Vector2( 0, 930 ), Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -250 ) ]
+}
 
 [node name="Story" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_bottom = 1.0
+margin_top = 930.0
+margin_right = 1128.0
+margin_bottom = 1890.0
 rect_min_size = Vector2( 1128, 960 )
 theme = ExtResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[center]The Lord of the Volcano[/center]
+text = "Once upon a time…  
 
-Once upon a time...
+	In the land of the Virgin Islands, there stood a long and tall volcano that wreaked terror and havoc upon the innocent sweethearts of the virgin islands. Along with this, there stood a man by the name A. G. He was a local man who did nothing but stare at the sky and wonder what the world truly was, as well as his place in it. One day he took it upon himself to free the people of the Virgin islands from the tyranny of the Volcano, as well as taking it upon himself to free them from the terror that ruled the volcano… 
 
-
-"
-text = "The Lord of the Volcano
-
-Once upon a time...
 
 
 "
-scroll_following = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Scroll"
+anims/RESET = SubResource( 1 )
+anims/Scroll = SubResource( 2 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

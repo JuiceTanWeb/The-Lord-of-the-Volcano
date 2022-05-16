@@ -7,6 +7,7 @@ extends Node
 signal changed_hp
 signal changed_pause_mode
 export var health = 3 setget set_health
+var player = null
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS

@@ -42,13 +42,13 @@ func _physics_process(_delta):
 			set_direction(DIRECTION_RIGHT)
 		if input_vector.y > 0:
 			$Rotate/Chungus.scale = Vector2(0.5, 0.5)
-			$Rotate/Chungus.play("default_front")
+			$Rotate/Chungus.play("walking_front")
 		elif input_vector.y < 0:
 			$Rotate/Chungus.scale = Vector2(0.5, 0.5)
-			$Rotate/Chungus.play("default_back")
+			$Rotate/Chungus.play("walking_back")
 		else:
-			$Rotate/Chungus.scale = Vector2(5, 5)
-			$Rotate/Chungus.play("default_side")
+			$Rotate/Chungus.scale = Vector2(0.5, 0.5)
+			$Rotate/Chungus.play("walking_side")
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 		$Rotate/Chungus.playing = false
