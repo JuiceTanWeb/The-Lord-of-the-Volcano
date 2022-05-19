@@ -18,5 +18,6 @@ func _ready():
 
 func _on_CaveEntranceSword_body_entered(body):
 	if body.name == "Ayush":
-		get_tree().change_scene("res://Story.tscn")
+		Game.position = Vector2(body.position.x + 20, body.position.y)
+		get_tree().change_scene("res://Cave.tscn")
 	pass # Replace with function body.

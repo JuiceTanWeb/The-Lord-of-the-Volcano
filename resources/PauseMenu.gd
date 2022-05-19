@@ -13,7 +13,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func update_visibility(status):
+func update_visibility():
 	if get_tree().paused:
 		visible = true
 	else:

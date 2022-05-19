@@ -8,6 +8,8 @@ signal changed_hp
 signal changed_pause_mode
 export var health = 3 setget set_health
 var player = null
+var position = Vector2.ZERO
+var has_sword = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pause_mode = Node.PAUSE_MODE_PROCESS
