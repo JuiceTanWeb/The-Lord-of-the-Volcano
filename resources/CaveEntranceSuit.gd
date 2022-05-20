@@ -16,14 +16,8 @@ func _ready():
 #	pass
 
 
-func _on_Sword_body_entered(body):
+func _on_CaveEntranceSuit_body_entered(body):
 	if body.name == "Ayush":
-		$AnimationPlayer.play("mandestroy")
-		visible = false
-		Game.has_sword = true
-	pass # Replace with function body.
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	queue_free()
+		Game.position = Vector2(body.position.x, body.position.y + 20)
+		get_tree().change_scene("res://Cave2.tscn")
 	pass # Replace with function body.

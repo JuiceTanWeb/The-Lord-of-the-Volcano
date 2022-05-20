@@ -5,11 +5,11 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 
-const MAX_SPEED = 400
+var MAX_SPEED = 400
 var input_vector = Vector2.ZERO
 const DIRECTION_RIGHT = 1
 const DIRECTION_LEFT = -1
-const ACCEL = 400
+var ACCEL = 400
 const FRICTION = 400
 var direction = Vector2(DIRECTION_RIGHT, 1)
 var velocity = Vector2.ZERO
@@ -55,3 +55,11 @@ func _physics_process(_delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 		$Rotate/Chungus.playing = false
 	move_and_slide(velocity)
+
+
+func _on_Suit_get_buff():
+	$Rotate/Chungus.play("buff")
+	get_tree().paused = true
+	yield(get_tree().create_timer(1.0), "timeout")
+	get_tree().paused = false
+	pass # Replace with function body.

@@ -4,7 +4,7 @@ extends Area2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-
+signal get_buff
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,14 +16,10 @@ func _ready():
 #	pass
 
 
-func _on_Sword_body_entered(body):
+func _on_Suit_body_entered(body):
 	if body.name == "Ayush":
+		emit_signal("get_buff")
 		$AnimationPlayer.play("mandestroy")
 		visible = false
-		Game.has_sword = true
-	pass # Replace with function body.
-
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	queue_free()
+		Game.is_buff = true
 	pass # Replace with function body.
