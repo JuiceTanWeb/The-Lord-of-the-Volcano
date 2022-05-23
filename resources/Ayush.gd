@@ -13,10 +13,14 @@ var ACCEL = 400
 const FRICTION = 400
 var direction = Vector2(DIRECTION_RIGHT, 1)
 var velocity = Vector2.ZERO
+onready var bullet = load("res://Bullet.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	if (get_tree().current_scene.name == "Overworld"):
 		position = Game.position
+	if Game.is_buff:
+		MAX_SPEED = 800
+		ACCEL = 800
 	pass # Replace with function body.
 
 
@@ -55,11 +59,19 @@ func _physics_process(_delta):
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 		$Rotate/Chungus.playing = false
 	move_and_slide(velocity)
-
-
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		var b = bullet.instance()
+		b.transform = global_transform
+		b.direction = direction
+		b.scale = $Rotate.scale
+		owner.add_child(b)
 func _on_Suit_get_buff():
 	$Rotate/Chungus.play("buff")
 	get_tree().paused = true
 	yield(get_tree().create_timer(1.0), "timeout")
+	MAX_SPEED = 800
+	ACCEL = 800
+	Game.is_buff = true
 	get_tree().paused = false
 	pass # Replace with function body.

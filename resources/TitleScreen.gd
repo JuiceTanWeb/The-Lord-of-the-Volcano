@@ -21,5 +21,5 @@ func _process(_delta):
 		$StartSound.play()
 		for _i in range (17):
 			yield($Timer, "timeout")
-		get_tree().change_scene("res://Overworld.tscn")
+		get_tree().change_scene("res://Story.tscn")
 #	pass

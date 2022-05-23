@@ -23,3 +23,8 @@ func _on_Suit_body_entered(body):
 		visible = false
 		Game.is_buff = true
 	pass # Replace with function body.
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	queue_free()
+	pass # Replace with function body.
