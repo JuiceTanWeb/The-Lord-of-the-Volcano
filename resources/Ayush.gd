@@ -19,8 +19,8 @@ func _ready():
 	if (get_tree().current_scene.name == "Overworld"):
 		position = Game.position
 	if Game.is_buff:
-		MAX_SPEED = 800
-		ACCEL = 800
+		MAX_SPEED = 600
+		ACCEL = 600
 	pass # Replace with function body.
 
 

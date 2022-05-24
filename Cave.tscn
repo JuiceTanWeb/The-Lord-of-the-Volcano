@@ -18,17 +18,12 @@
 [ext_resource path="res://resources/TeleportOut.gd" type="Script" id=16]
 [ext_resource path="res://Cave.gd" type="Script" id=17]
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 40.0
 height = 48.0
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "default_front",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default_side",
@@ -39,23 +34,28 @@ animations = [ {
 "name": "walking_front",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walking_back",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "walking_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default_front",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "default_back",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walking_back",
-"speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=3]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/path = NodePath(".:visible_characters")
@@ -78,7 +78,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=4]
 resource_name = "type"
 length = 3.0
 tracks/0/type = "bezier"
@@ -102,10 +102,10 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 3 )
 }
 
-[sub_resource type="CircleShape2D" id=10]
+[sub_resource type="CircleShape2D" id=5]
 radius = 53.0377
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("../Man:modulate:r")
@@ -148,7 +148,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0 )
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=7]
 resource_name = "mandestroy"
 tracks/0/type = "bezier"
 tracks/0/path = NodePath("../Man:modulate:r")
@@ -191,7 +191,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 1 )
 }
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 81, 37.5 )
 
 [node name="Cave" type="Node2D"]
@@ -209,13 +209,13 @@ position = Vector2( 555, 787 )
 script = ExtResource( 13 )
 
 [node name="massive hitbox" type="CollisionShape2D" parent="Ayush"]
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="Rotate" type="Node2D" parent="Ayush"]
 
 [node name="Chungus" type="AnimatedSprite" parent="Ayush/Rotate"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 7 )
+frames = SubResource( 2 )
 animation = "walking_back"
 
 [node name="Man" type="Sprite" parent="."]
@@ -234,8 +234,8 @@ percent_visible = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Label"]
 autoplay = "type"
-anims/RESET = SubResource( 8 )
-anims/type = SubResource( 9 )
+anims/RESET = SubResource( 3 )
+anims/type = SubResource( 4 )
 
 [node name="Sword" type="Area2D" parent="."]
 position = Vector2( 559, 508 )
@@ -246,11 +246,11 @@ scale = Vector2( 5, 5 )
 texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
-shape = SubResource( 10 )
+shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sword"]
-anims/RESET = SubResource( 11 )
-anims/mandestroy = SubResource( 12 )
+anims/RESET = SubResource( 6 )
+anims/mandestroy = SubResource( 7 )
 
 [node name="TeleportOut" type="Area2D" parent="."]
 position = Vector2( 557, 918 )
@@ -261,7 +261,7 @@ polygon = PoolVector2Array( -81, -39, 83, -39, 84, 40, -83, 40 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TeleportOut"]
 position = Vector2( 2, 1.5 )
-shape = SubResource( 13 )
+shape = SubResource( 8 )
 
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_Sword_body_entered"]
 [connection signal="animation_finished" from="Sword/AnimationPlayer" to="Sword" method="_on_AnimationPlayer_animation_finished"]

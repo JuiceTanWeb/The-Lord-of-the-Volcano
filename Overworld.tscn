@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://resources/UPDATED ayush/ayush_side_idle.png" type="Texture" id=1]
 [ext_resource path="res://resources/UPDATED ayush/ayush_back_idle.png" type="Texture" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=8]
 [ext_resource path="res://resources/Main theme-[AudioTrimmer.com].wav" type="AudioStream" id=9]
 [ext_resource path="res://resources/CaveEntranceSuit.gd" type="Script" id=10]
-[ext_resource path="res://resources/setting tiles/volcano/volcano_1.png" type="Texture" id=11]
 [ext_resource path="res://resources/TextureProgress.gd" type="Script" id=19]
 [ext_resource path="res://resources/CaveEntranceSword.gd" type="Script" id=21]
 [ext_resource path="res://resources/UPDATED ayush/ayush_back_right.png" type="Texture" id=22]
@@ -20,40 +19,35 @@
 [ext_resource path="res://resources/UPDATED ayush/ayush_side_frontfoot.png" type="Texture" id=26]
 [ext_resource path="res://resources/UPDATED ayush/ayush_side_backfoot.png" type="Texture" id=27]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40.3333, 12.8333 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 122, 39.5 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 6 )
 
-[sub_resource type="CapsuleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=4]
 radius = 40.0
 height = 48.0
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "default_side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 23 ), ExtResource( 2 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walking_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default_back",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 24 ), ExtResource( 3 ), ExtResource( 25 ) ],
 "loop": true,
 "name": "walking_front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 23 ), ExtResource( 2 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walking_back",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 26 ), ExtResource( 1 ), ExtResource( 27 ) ],
@@ -65,12 +59,17 @@ animations = [ {
 "loop": true,
 "name": "default_front",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default_back",
+"speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 120, 41.5 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 122.5, 50.5 )
 
 [node name="Overworld" type="Node2D"]
@@ -95,7 +94,7 @@ script = ExtResource( 21 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntranceSword"]
 position = Vector2( 30.3334, -0.5 )
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="CaveEntranceSword"]
 color = Color( 0, 0, 0, 1 )
@@ -107,7 +106,7 @@ script = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntranceSuit"]
 position = Vector2( -7, -4.5 )
-shape = SubResource( 10 )
+shape = SubResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="CaveEntranceSuit"]
 color = Color( 0, 0, 0, 1 )
@@ -156,7 +155,7 @@ margin_right = 404.0
 [node name="Label" type="Label" parent="NoMove/PauseMenu/VBoxContainer"]
 margin_right = 758.0
 margin_bottom = 32.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 3 )
 text = "PAUSE MENU"
 align = 1
 
@@ -164,7 +163,7 @@ align = 1
 script = ExtResource( 5 )
 
 [node name="massive hitbox" type="CollisionShape2D" parent="Ayush"]
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="paparazi" type="Camera2D" parent="Ayush"]
 current = true
@@ -173,7 +172,7 @@ current = true
 
 [node name="Chungus" type="AnimatedSprite" parent="Ayush/Rotate"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 7 )
+frames = SubResource( 5 )
 animation = "walking_back"
 
 [node name="CaveEntranceFinal" type="Area2D" parent="."]
@@ -181,7 +180,7 @@ position = Vector2( 4677, -1398 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntranceFinal"]
 position = Vector2( 3, -3.5 )
-shape = SubResource( 11 )
+shape = SubResource( 6 )
 
 [node name="Polygon2D" type="Polygon2D" parent="CaveEntranceFinal"]
 color = Color( 0, 0, 0, 1 )
@@ -192,10 +191,7 @@ position = Vector2( 4684, -1403 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyBlock"]
 position = Vector2( -4.5, -7.5 )
-shape = SubResource( 12 )
-
-[node name="Sprite" type="Sprite" parent="DestroyBlock"]
-texture = ExtResource( 11 )
+shape = SubResource( 7 )
 
 [connection signal="body_entered" from="CaveEntranceSword" to="CaveEntranceSword" method="_on_CaveEntranceSword_body_entered"]
 [connection signal="body_entered" from="CaveEntranceSuit" to="CaveEntranceSuit" method="_on_CaveEntranceSuit_body_entered"]

@@ -26,7 +26,18 @@ func _input(event):
 	if event.is_action_pressed("ui_cancel") and get_tree().current_scene.get_path() == "/root/Overworld":
 		if get_tree().paused:
 			get_tree().paused = false
-			emit_signal("changed_pause_mode", false)
+			emit_signal("changed_pause_mode")
 		else:
 			get_tree().paused = true
-			emit_signal("changed_pause_mode", true)
+			emit_signal("changed_pause_mode")
+func load_save():
+	var filetodelete = Directory.new()
+	if filetodelete.file_exists("user://ayush.garg"):
+		pass
+
+func save_game():
+	var save_game = File.new()
+	save_game.open("user://ayush.garg", File.WRITE)
+	var node_data = [has_sword, is_buff]
+	save_game.store_line(to_json(node_data))
+	save_game.close()

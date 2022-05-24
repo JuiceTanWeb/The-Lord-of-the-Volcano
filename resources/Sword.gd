@@ -21,6 +21,7 @@ func _on_Sword_body_entered(body):
 		$AnimationPlayer.play("mandestroy")
 		visible = false
 		Game.has_sword = true
+		Game.save_game()
 	pass # Replace with function body.
 
 

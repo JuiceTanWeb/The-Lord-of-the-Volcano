@@ -19,7 +19,9 @@ func _process(_delta):
 		$AnimationPlayer.play("flash")
 		$Theme.stop()
 		$StartSound.play()
-		for _i in range (17):
-			yield($Timer, "timeout")
-		get_tree().change_scene("res://Story.tscn")
+		var filetodelete = Directory.new()
+		if !filetodelete.file_exists("user://ayush.garg"):
+			get_tree().change_scene("res://Story.tscn")
+		else:
+			get_tree().change_scene("res://Overworld.tscn")
 #	pass
