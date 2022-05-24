@@ -13,6 +13,7 @@ var has_sword = false
 var is_buff = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	load_save()
 	pause_mode = Node.PAUSE_MODE_PROCESS
 	pass # Replace with function body.
 func set_health(hp):
@@ -32,11 +33,19 @@ func _input(event):
 			emit_signal("changed_pause_mode")
 func load_save():
 	var filetodelete = Directory.new()
+	var save_game = File.new()
 	if filetodelete.file_exists("user://ayush.garg"):
-		pass
+		save_game.open("user://ayush.garg", File.READ)
+		var vardata = parse_json(save_game.get_line())
+		save_game.close()
+		has_sword = vardata[0]
+		is_buff = vardata[1]
 
 func save_game():
+	var filetodelete = Directory.new()
 	var save_game = File.new()
+	if save_game.file_exists("user://ayush.garg"):
+		filetodelete.remove("user://ayush.garg")
 	save_game.open("user://ayush.garg", File.WRITE)
 	var node_data = [has_sword, is_buff]
 	save_game.store_line(to_json(node_data))

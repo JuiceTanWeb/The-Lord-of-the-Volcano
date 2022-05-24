@@ -22,6 +22,7 @@ func _on_Suit_body_entered(body):
 		$AnimationPlayer.play("mandestroy")
 		visible = false
 		Game.is_buff = true
+		Game.save_game()
 	pass # Replace with function body.
 
 
