@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Lord Boss Fight-[AudioTrimmer.com].wav-b1163617bf218a57b8a15d94bfd94346.sample"
+
+[deps]
+
+source_file="res://Lord Boss Fight-[AudioTrimmer.com].wav"
+dest_files=[ "res://.import/Lord Boss Fight-[AudioTrimmer.com].wav-b1163617bf218a57b8a15d94bfd94346.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

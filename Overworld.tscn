@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://resources/UPDATED ayush/ayush_side_idle.png" type="Texture" id=1]
 [ext_resource path="res://resources/UPDATED ayush/ayush_back_idle.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=8]
 [ext_resource path="res://resources/Main theme-[AudioTrimmer.com].wav" type="AudioStream" id=9]
 [ext_resource path="res://resources/CaveEntranceSuit.gd" type="Script" id=10]
+[ext_resource path="res://resources/sausage.png" type="Texture" id=11]
+[ext_resource path="res://CaveEntranceFinal.gd" type="Script" id=12]
+[ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=13]
 [ext_resource path="res://resources/TextureProgress.gd" type="Script" id=19]
 [ext_resource path="res://resources/CaveEntranceSword.gd" type="Script" id=21]
 [ext_resource path="res://resources/UPDATED ayush/ayush_back_right.png" type="Texture" id=22]
@@ -45,14 +48,14 @@ animations = [ {
 "name": "walking_front",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 23 ), ExtResource( 2 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "walking_back",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 26 ), ExtResource( 1 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "walking_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 23 ), ExtResource( 2 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "walking_back",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
@@ -70,7 +73,7 @@ animations = [ {
 extents = Vector2( 120, 41.5 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 122.5, 50.5 )
+extents = Vector2( 122.5, 58 )
 
 [node name="Overworld" type="Node2D"]
 
@@ -175,8 +178,12 @@ scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 5 )
 animation = "walking_back"
 
+[node name="Shoot" type="AudioStreamPlayer" parent="Ayush"]
+stream = ExtResource( 13 )
+
 [node name="CaveEntranceFinal" type="Area2D" parent="."]
 position = Vector2( 4677, -1398 )
+script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntranceFinal"]
 position = Vector2( 3, -3.5 )
@@ -186,12 +193,18 @@ shape = SubResource( 6 )
 color = Color( 0, 0, 0, 1 )
 polygon = PoolVector2Array( -117, -47, 122, -47, 123, 39, -118, 39 )
 
-[node name="DestroyBlock" type="Area2D" parent="."]
+[node name="DestroyBlock" type="StaticBody2D" parent="." groups=["destroyable"]]
 position = Vector2( 4684, -1403 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestroyBlock"]
-position = Vector2( -4.5, -7.5 )
+position = Vector2( -4.5, -15 )
 shape = SubResource( 7 )
+
+[node name="Sprite" type="Sprite" parent="DestroyBlock"]
+position = Vector2( 39, -12 )
+scale = Vector2( 10, 10 )
+texture = ExtResource( 11 )
 
 [connection signal="body_entered" from="CaveEntranceSword" to="CaveEntranceSword" method="_on_CaveEntranceSword_body_entered"]
 [connection signal="body_entered" from="CaveEntranceSuit" to="CaveEntranceSuit" method="_on_CaveEntranceSuit_body_entered"]
+[connection signal="body_entered" from="CaveEntranceFinal" to="CaveEntranceFinal" method="_on_CaveEntranceFinal_body_entered"]

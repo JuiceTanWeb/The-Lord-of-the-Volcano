@@ -7,7 +7,7 @@ func _physics_process(delta):
 	position += -transform.x * delta * speed
 
 func _on_Bullet_body_entered(body):
-	if body.is_in_group("destroy"):
+	if body.is_in_group("destroyable"):
 		body.queue_free()
 	if !body.name == "Ayush":
 		queue_free()

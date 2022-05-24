@@ -60,11 +60,25 @@ func _physics_process(_delta):
 		$Rotate/Chungus.playing = false
 	move_and_slide(velocity)
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("ui_accept") and Game.has_sword:
+		$Shoot.play()
 		var b = bullet.instance()
 		b.transform = global_transform
-		b.direction = direction
-		b.scale = $Rotate.scale
+		if $Rotate/Chungus.animation == "walking_back":
+			b.rotation_degrees = -90
+			if direction.x == 1:
+				b.scale = $Rotate.scale * -1
+			else:
+				b.scale = $Rotate.scale * 1
+		elif $Rotate/Chungus.animation == "walking_front":
+			b.rotation_degrees = 90
+			b.scale = $Rotate.scale
+			if direction.x == 1:
+				b.scale = $Rotate.scale * -1
+			else:
+				b.scale = $Rotate.scale * 1
+		else:
+			b.scale = $Rotate.scale
 		owner.add_child(b)
 func _on_Suit_get_buff():
 	$Rotate/Chungus.play("buff")
