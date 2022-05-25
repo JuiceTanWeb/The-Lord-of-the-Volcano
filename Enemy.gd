@@ -8,6 +8,7 @@ extends KinematicBody2D
 var target = null
 var attacking = false
 var direction = 1
+signal hit
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -32,4 +33,12 @@ func _on_Area2D_body_entered(body):
 
 func _on_Timer_timeout():
 	direction *= -1
+	pass # Replace with function body.
+
+
+func _on_Hitbox_body_entered(body):
+	if body.name == "Ayush":
+		Game.set_health(Game.health - 0.5)
+		body.hit()
+		yield(get_tree().create_timer(1), "timeout")
 	pass # Replace with function body.

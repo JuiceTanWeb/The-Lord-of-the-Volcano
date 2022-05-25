@@ -8,8 +8,11 @@ var target = null
 onready var character = $Enemy
 var path = []
 var walk_distance = 0
+var cooldown = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Enemy.global_position = global_position
+	global_position = Vector2.ZERO
 	pass # Replace with function body.
 
 
@@ -17,7 +20,7 @@ func _ready():
 #func _process(delta):
 #	pass
 func _physics_process(delta):
-	if !target == null: 
+	if !target == null and !cooldown: 
 		walk_distance = 200 * delta
 		move_along_path(walk_distance)
 		_update_navigation_path(character.get_global_position(), target.global_position)
@@ -59,4 +62,13 @@ func _on_Area2D_body_entered(body):
 
 func _on_Enemy_tree_exiting():
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_Hitbox_body_entered(body):
+	if body.name == "Ayush":
+		cooldown = true
+		yield($Enemy/Hitbox, "body_exited")
+		yield(get_tree().create_timer(1), "timeout")
+		cooldown = false
 	pass # Replace with function body.

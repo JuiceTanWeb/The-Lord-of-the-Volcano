@@ -19,6 +19,8 @@ func _ready():
 func set_health(hp):
 	health = hp
 	emit_signal("changed_hp", health)
+	if hp < 0.5:
+		get_tree().change_scene("res://Gameover.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

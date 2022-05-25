@@ -89,3 +89,5 @@ func _on_Suit_get_buff():
 	Game.is_buff = true
 	get_tree().paused = false
 	pass # Replace with function body.
+func hit():
+	$AnimationPlayer.play("hit")
