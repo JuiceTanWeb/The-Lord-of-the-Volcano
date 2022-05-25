@@ -38,16 +38,6 @@ height = 48.0
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default_side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 24 ), ExtResource( 3 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "walking_front",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 26 ), ExtResource( 1 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "walking_side",
@@ -66,6 +56,16 @@ animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "default_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "default_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 24 ), ExtResource( 3 ), ExtResource( 25 ) ],
+"loop": true,
+"name": "walking_front",
 "speed": 5.0
 } ]
 

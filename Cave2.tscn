@@ -25,9 +25,24 @@ height = 48.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 10 ) ],
 "loop": true,
-"name": "buff",
+"name": "walking_side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walking_back",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "default_front",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "default_back",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -40,24 +55,9 @@ animations = [ {
 "name": "walking_front",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 18 ) ],
 "loop": true,
-"name": "walking_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walking_side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "default_front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default_back",
+"name": "buff",
 "speed": 5.0
 } ]
 
