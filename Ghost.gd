@@ -8,14 +8,15 @@ var target = null
 onready var character = $Enemy
 var path = []
 var walk_distance = 0
+var speed = 500
 var cooldown = false
-var speed = 300
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	speed = (250 + randi() % 50)
+	speed = (450 + randi() % 100)
 	var temp = global_position
 	global_position = Vector2.ZERO
 	character.global_position = temp
+	connect("tree_exiting", owner, "tally_kill")
 	pass # Replace with function body.
 
 
@@ -24,7 +25,7 @@ func _ready():
 #	pass
 func _physics_process(delta):
 	if !target == null and !cooldown: 
-		walk_distance = speed * delta
+		walk_distance = 500 * delta
 		move_along_path(walk_distance)
 		_update_navigation_path(character.get_global_position(), target.global_position)
 	
@@ -80,3 +81,4 @@ func _on_Hitbox_body_entered(body):
 func _on_EnemyPath_tree_exiting():
 	if get_parent().name == "Dungeon":
 		get_parent().tally_kill()
+	pass # Replace with function body.

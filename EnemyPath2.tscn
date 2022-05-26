@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Enemy2.gd" type="Script" id=1]
 [ext_resource path="res://EnemyPath.gd" type="Script" id=2]
-[ext_resource path="res://resources/rock_enemy.png" type="Texture" id=3]
+[ext_resource path="res://resources/fire_rock_enemy.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 37.4667, 16.4689 )
@@ -54,7 +54,6 @@ navpoly = SubResource( 5 )
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
 
-[connection signal="tree_exiting" from="." to="." method="_on_EnemyPath_tree_exiting"]
 [connection signal="tree_exiting" from="Enemy" to="." method="_on_Enemy_tree_exiting"]
 [connection signal="body_entered" from="Enemy/Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_entered" from="Enemy/Hitbox" to="Enemy" method="_on_Hitbox_body_entered"]
