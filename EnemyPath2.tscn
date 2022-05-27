@@ -54,6 +54,7 @@ navpoly = SubResource( 5 )
 [node name="Line2D" type="Line2D" parent="."]
 visible = false
 
+[connection signal="tree_exiting" from="." to="." method="_on_EnemyPath_tree_exiting"]
 [connection signal="tree_exiting" from="Enemy" to="." method="_on_Enemy_tree_exiting"]
 [connection signal="body_entered" from="Enemy/Hitbox" to="." method="_on_Hitbox_body_entered"]
 [connection signal="body_entered" from="Enemy/Hitbox" to="Enemy" method="_on_Hitbox_body_entered"]

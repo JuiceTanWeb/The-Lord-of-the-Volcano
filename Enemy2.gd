@@ -37,7 +37,7 @@ func _on_Timer_timeout():
 
 func _on_Hitbox_body_entered(body):
 	if body.name == "Ayush":
-		Game.set_health(Game.health - 1)
+		Game.set_health(Game.health - 0.5)
 		body.hit()
 		yield(get_tree().create_timer(1), "timeout")
 	pass # Replace with function body.

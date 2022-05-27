@@ -47,14 +47,26 @@ func _physics_process(_delta):
 		else:
 			set_direction(DIRECTION_RIGHT)
 		if input_vector.y > 0:
-			$Rotate/Chungus.scale = Vector2(0.5, 0.5)
-			$Rotate/Chungus.play("walking_front")
+			if !Game.is_buff:
+				$Rotate/Chungus.scale = Vector2(0.5, 0.5)
+				$Rotate/Chungus.play("walking_front")
+			else:
+				$Rotate/Chungus.scale = Vector2(0.5, 0.5)
+				$Rotate/Chungus.play("armor_walking_front")
 		elif input_vector.y < 0:
-			$Rotate/Chungus.scale = Vector2(0.5, 0.5)
-			$Rotate/Chungus.play("walking_back")
+			if !Game.is_buff:
+				$Rotate/Chungus.scale = Vector2(0.5, 0.5)
+				$Rotate/Chungus.play("walking_back")
+			else:
+				$Rotate/Chungus.scale = Vector2(0.5, 0.5)
+				$Rotate/Chungus.play("armor_walking_back")
 		else:
-			$Rotate/Chungus.scale = Vector2(0.5, 0.5)
-			$Rotate/Chungus.play("walking_side")
+			if !Game.is_buff:
+				$Rotate/Chungus.scale = Vector2(0.5, 0.5)
+				$Rotate/Chungus.play("walking_side")
+			else:
+				$Rotate/Chungus.scale = Vector2(0.5, 0.5)
+				$Rotate/Chungus.play("armor_walking_side")
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION)
 		$Rotate/Chungus.playing = false
@@ -64,13 +76,13 @@ func _input(event):
 		$Shoot.play()
 		var b = bullet.instance()
 		b.transform = global_transform
-		if $Rotate/Chungus.animation == "walking_back":
+		if $Rotate/Chungus.animation == "walking_back" or $Rotate/Chungus.animation == "armor_walking_back":
 			b.rotation_degrees = -90
 			if direction.x == 1:
 				b.scale = $Rotate.scale * -1
 			else:
 				b.scale = $Rotate.scale * 1
-		elif $Rotate/Chungus.animation == "walking_front":
+		elif $Rotate/Chungus.animation == "walking_front" or $Rotate/Chungus.animation == "armor_walking_front":
 			b.rotation_degrees = 90
 			b.scale = $Rotate.scale
 			if direction.x == 1:

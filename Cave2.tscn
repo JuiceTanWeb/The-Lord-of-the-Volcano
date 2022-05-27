@@ -1,15 +1,7 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=18 format=2]
 
-[ext_resource path="res://resources/UPDATED ayush/ayush_side_idle.png" type="Texture" id=1]
-[ext_resource path="res://resources/UPDATED ayush/ayush_back_idle.png" type="Texture" id=2]
-[ext_resource path="res://resources/UPDATED ayush/ayush_front_idle.png" type="Texture" id=3]
-[ext_resource path="res://resources/UPDATED ayush/ayush_back_right.png" type="Texture" id=4]
-[ext_resource path="res://resources/UPDATED ayush/ayush_back_left.png" type="Texture" id=5]
-[ext_resource path="res://resources/UPDATED ayush/ayush_front_left.png" type="Texture" id=6]
-[ext_resource path="res://resources/UPDATED ayush/ayush_side_frontfoot.png" type="Texture" id=7]
+[ext_resource path="res://frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://resources/old_man.png" type="Texture" id=8]
-[ext_resource path="res://resources/UPDATED ayush/ayush_front_right.png" type="Texture" id=9]
-[ext_resource path="res://resources/UPDATED ayush/ayush_side_backfoot.png" type="Texture" id=10]
 [ext_resource path="res://resources/full_heart.png" type="Texture" id=11]
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=12]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=13]
@@ -17,50 +9,11 @@
 [ext_resource path="res://resources/Suit.gd" type="Script" id=15]
 [ext_resource path="res://resources/TeleportOut.gd" type="Script" id=16]
 [ext_resource path="res://resources/Cave2.gd" type="Script" id=17]
-[ext_resource path="res://resources/bufftush.png" type="Texture" id=18]
 [ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=19]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 40.0
 height = 48.0
-
-[sub_resource type="SpriteFrames" id=2]
-animations = [ {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "buff",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 1 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walking_side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "walking_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "walking_front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "default_front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default_side",
-"speed": 5.0
-} ]
 
 [sub_resource type="Animation" id=3]
 length = 0.001
@@ -222,7 +175,7 @@ shape = SubResource( 1 )
 
 [node name="Chungus" type="AnimatedSprite" parent="Ayush/Rotate"]
 scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 2 )
+frames = ExtResource( 1 )
 animation = "default_back"
 
 [node name="Shoot" type="AudioStreamPlayer" parent="Ayush"]

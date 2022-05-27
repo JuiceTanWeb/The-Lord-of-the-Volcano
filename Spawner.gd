@@ -35,11 +35,9 @@ func spawn_enemy(type, times):
 				temp.global_position = Vector2(global_position.x + randi() % 20, global_position.y + randi() % 20)
 				temp.set_owner(owner)
 				owner.call_deferred("add_child",temp)
-				temp.set_owner(owner)
 		"Ghost":
 			for i in range (times):
 				var temp = ghost.instance()
 				temp.global_position = Vector2(global_position.x + randi() % 20, global_position.y + randi() % 20)
 				temp.set_owner(owner)
 				owner.call_deferred("add_child",temp)
-				temp.set_owner(owner)

@@ -5,10 +5,10 @@
 [ext_resource path="res://ghost.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 37.4667, 16.4689 )
+extents = Vector2( 23.5, 16.4689 )
 
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 50.187, 29.75 )
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 36.0
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 478.516
@@ -29,13 +29,12 @@ scale = Vector2( 7, 7 )
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2( -0.462646, -3.864 )
+position = Vector2( 0.5, -3.864 )
 shape = SubResource( 3 )
 
 [node name="Hitbox" type="Area2D" parent="Enemy"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/Hitbox"]
-position = Vector2( 0.89418, -0.0878143 )
 shape = SubResource( 6 )
 
 [node name="DetectArea" type="Area2D" parent="Enemy"]
