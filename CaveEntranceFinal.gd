@@ -18,6 +18,13 @@ func _ready():
 
 func _on_CaveEntranceFinal_body_entered(body):
 	if body.name == "Ayush":
+		$AnimationPlayer.play("transition_to_boss")
+		get_tree().paused = true
 		Game.position = Vector2(body.position.x, body.position.y - 20)
-		get_tree().change_scene("res://Dungeon.tscn")
+	pass # Replace with function body.
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	get_tree().paused = false
+	get_tree().change_scene("res://Dungeon.tscn")
 	pass # Replace with function body.

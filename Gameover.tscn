@@ -286,7 +286,6 @@ text = "Press Space"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Start"]
-autoplay = "Flash"
 anims/Flash = SubResource( 4 )
 anims/RESET = SubResource( 5 )
 
@@ -296,3 +295,5 @@ anims/flash = SubResource( 7 )
 
 [node name="StartSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
