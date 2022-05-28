@@ -12,17 +12,14 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if Input.is_action_pressed("ui_accept"):
-		$Start/AnimationPlayer.stop()
+#func _process(delta):
+#	pass
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
 		$Start.visible = true
-		$AnimationPlayer.play("flash")
-		$Theme.stop()
+		$Start/AnimationPlayer.stop()
+		$AnimationPlayer2.play("flash")
 		$StartSound.play()
 		yield($StartSound, "finished")
-		var filetodelete = Directory.new()
-		if !filetodelete.file_exists("user://ayush.garg"):
-			get_tree().change_scene("res://Story.tscn")
-		else:
-			get_tree().change_scene("res://Overworld.tscn")
-#	pass
+		Game.set_health(3)
+		get_tree().change_scene("res://Overworld.tscn")

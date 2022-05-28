@@ -9,8 +9,9 @@ var wave = 0
 var enemies_killed = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Polygon2D.global_position = $Ayush.global_position
-	$AnimationPlayer.play("transition_to_boss")
+	$Polygon2D.visible = false
+#	$Polygon2D.global_position = $Ayush.global_position
+#	$AnimationPlayer.play("transition_to_boss"
 	pass # Replace with function body.
 
 func tally_kill():
@@ -32,6 +33,12 @@ func tally_kill():
 				wave += 1
 				$Polygon2D.global_position = $Ayush.global_position
 				$AnimationPlayer.play("transition_to_boss")
+				get_tree().paused = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	get_tree().change_scene("res://Boss.tscn")
+	pass # Replace with function body.
