@@ -24,5 +24,8 @@ func _process(_delta):
 		if !filetodelete.file_exists("user://ayush.garg"):
 			get_tree().change_scene("res://Story.tscn")
 		else:
-			get_tree().change_scene("res://Overworld.tscn")
+			if Game.final_boss:
+				get_tree().change_scene("res://Boss.tscn")
+			else:
+				get_tree().change_scene("res://Overworld.tscn")
 #	pass

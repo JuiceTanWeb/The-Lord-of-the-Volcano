@@ -8,6 +8,8 @@ extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Game.final_boss:
+		get_tree().change_scene("res://Boss.tscn")
 	pass # Replace with function body.
 
 

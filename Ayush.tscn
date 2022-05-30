@@ -1,59 +1,49 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://resources/UPDATED ayush/ayush_back_idle.png" type="Texture" id=1]
-[ext_resource path="res://resources/UPDATED ayush/ayush_side_idle.png" type="Texture" id=2]
+[ext_resource path="res://frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=3]
-[ext_resource path="res://resources/UPDATED ayush/ayush_front_idle.png" type="Texture" id=4]
-[ext_resource path="res://resources/UPDATED ayush/ayush_side_frontfoot.png" type="Texture" id=5]
-[ext_resource path="res://resources/UPDATED ayush/ayush_front_right.png" type="Texture" id=6]
 [ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=7]
-[ext_resource path="res://resources/UPDATED ayush/ayush_back_left.png" type="Texture" id=8]
-[ext_resource path="res://resources/UPDATED ayush/ayush_back_right.png" type="Texture" id=9]
-[ext_resource path="res://resources/UPDATED ayush/ayush_front_left.png" type="Texture" id=10]
-[ext_resource path="res://resources/UPDATED ayush/ayush_side_backfoot.png" type="Texture" id=11]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=1]
 radius = 40.0
 height = 48.0
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "default_back",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "default_side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "walking_side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 10 ), ExtResource( 4 ), ExtResource( 6 ) ],
-"loop": true,
-"name": "walking_front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ) ],
-"loop": true,
-"name": "default_front",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 1 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "walking_back",
-"speed": 5.0
-} ]
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../Polygon2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "hit"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Rotate/Chungus:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Ayush" type="KinematicBody2D"]
+position = Vector2( -158, 1341 )
 script = ExtResource( 3 )
 
 [node name="massive hitbox" type="CollisionShape2D" parent="."]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="paparazi" type="Camera2D" parent="."]
 current = true
@@ -61,9 +51,13 @@ current = true
 [node name="Rotate" type="Node2D" parent="."]
 
 [node name="Chungus" type="AnimatedSprite" parent="Rotate"]
-scale = Vector2( 0.5, 0.5 )
-frames = SubResource( 5 )
-animation = "walking_back"
+scale = Vector2( -0.5, 0.5 )
+frames = ExtResource( 1 )
+animation = "armor_default_front"
 
 [node name="Shoot" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 5 )
+anims/hit = SubResource( 6 )

@@ -11,6 +11,7 @@ var player = null
 var position = Vector2.ZERO
 var has_sword = false
 var is_buff = false
+var final_boss = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_save()
@@ -42,6 +43,7 @@ func load_save():
 		save_game.close()
 		has_sword = vardata[0]
 		is_buff = vardata[1]
+		final_boss = vardata[2]
 
 func save_game():
 	var filetodelete = Directory.new()
@@ -49,6 +51,6 @@ func save_game():
 	if save_game.file_exists("user://ayush.garg"):
 		filetodelete.remove("user://ayush.garg")
 	save_game.open("user://ayush.garg", File.WRITE)
-	var node_data = [has_sword, is_buff]
+	var node_data = [has_sword, is_buff, final_boss]
 	save_game.store_line(to_json(node_data))
 	save_game.close()
