@@ -19,3 +19,13 @@ func update_visibility():
 	else:
 		visible = false
 #	pass
+
+
+func _on_Button_pressed():
+	var filetodelete = Directory.new()
+	if filetodelete.file_exists("user://ayush.garg"):
+		filetodelete.remove("user://ayush.garg")
+	Game.load_save()
+	get_tree().paused = false
+	get_tree().change_scene("res://TitleScreen.tscn")
+	pass # Replace with function body.

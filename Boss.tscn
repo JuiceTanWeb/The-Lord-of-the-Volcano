@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Lord.gd" type="Script" id=13]
 [ext_resource path="res://resources/Lord Boss Fight-[AudioTrimmer.com].wav" type="AudioStream" id=14]
 [ext_resource path="res://lord of volcano attacks/lov_side_charge.png" type="Texture" id=15]
+[ext_resource path="res://.import/new_theme.tres" type="Theme" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 40.0
@@ -529,6 +530,19 @@ custom_fonts/font = SubResource( 11 )
 text = "PAUSE MENU"
 align = 1
 
+[node name="Button" type="Button" parent="NoMove/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.351
+margin_top = -63.2163
+margin_right = 187.649
+margin_bottom = 136.784
+rect_min_size = Vector2( 400, 200 )
+theme = ExtResource( 16 )
+text = "Reset Save File"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 14 )
 
@@ -538,3 +552,4 @@ stream = ExtResource( 14 )
 [connection signal="body_entered" from="Heart" to="Heart" method="_on_Heart_body_entered"]
 [connection signal="start_battle" from="Heart" to="." method="_on_Heart_start_battle"]
 [connection signal="start_battle" from="Heart" to="Lord" method="_on_Heart_start_battle"]
+[connection signal="pressed" from="NoMove/PauseMenu/Button" to="NoMove/PauseMenu" method="_on_Button_pressed"]

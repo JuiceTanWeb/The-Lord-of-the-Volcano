@@ -8,7 +8,7 @@ enum {SPAWNING, CHARGING, SHOOTING}
 onready var enemy = load("FinalEnemy.tscn")
 var phase = SPAWNING
 var in_battle = false
-var health = 0
+var health = 70
 var target = 0
 var invincible = true
 var player = null

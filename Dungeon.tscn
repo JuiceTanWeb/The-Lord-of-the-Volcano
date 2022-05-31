@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://frames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://.import/new_theme.tres" type="Theme" id=2]
 [ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=10]
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=11]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=12]
@@ -230,6 +231,19 @@ custom_fonts/font = SubResource( 4 )
 text = "PAUSE MENU"
 align = 1
 
+[node name="Button" type="Button" parent="NoMove/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.351
+margin_top = -63.2163
+margin_right = 187.649
+margin_bottom = 136.784
+rect_min_size = Vector2( 400, 200 )
+theme = ExtResource( 2 )
+text = "Reset Save File"
+
 [node name="Position2D" type="Position2D" parent="." groups=["Spawners"]]
 position = Vector2( 567, 467 )
 script = ExtResource( 15 )
@@ -256,4 +270,5 @@ playback_speed = 2.29
 anims/RESET = SubResource( 8 )
 anims/transition_to_boss = SubResource( 7 )
 
+[connection signal="pressed" from="NoMove/PauseMenu/Button" to="NoMove/PauseMenu" method="_on_Button_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

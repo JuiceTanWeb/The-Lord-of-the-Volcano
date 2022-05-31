@@ -24,5 +24,3 @@ func _on_Heart_start_battle():
 	pass # Replace with function body.
 
 
-func _on_hitbox_body_entered(body):
-	pass # Replace with function body.

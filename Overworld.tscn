@@ -1,9 +1,10 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://frames.tres" type="SpriteFrames" id=1]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=2]
 [ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=3]
 [ext_resource path="res://resources/PauseMenu.gd" type="Script" id=4]
+[ext_resource path="res://.import/new_theme.tres" type="Theme" id=5]
 [ext_resource path="res://resources/PressStart2P-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://resources/pixil-frame-0.png" type="Texture" id=7]
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=8]
@@ -224,6 +225,19 @@ custom_fonts/font = SubResource( 3 )
 text = "PAUSE MENU"
 align = 1
 
+[node name="Button" type="Button" parent="NoMove/PauseMenu"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -212.351
+margin_top = -63.2163
+margin_right = 187.649
+margin_bottom = 136.784
+rect_min_size = Vector2( 400, 200 )
+theme = ExtResource( 5 )
+text = "Reset Save File"
+
 [node name="Ayush" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
 
@@ -276,5 +290,6 @@ texture = ExtResource( 11 )
 
 [connection signal="body_entered" from="CaveEntranceSword" to="CaveEntranceSword" method="_on_CaveEntranceSword_body_entered"]
 [connection signal="body_entered" from="CaveEntranceSuit" to="CaveEntranceSuit" method="_on_CaveEntranceSuit_body_entered"]
+[connection signal="pressed" from="NoMove/PauseMenu/Button" to="NoMove/PauseMenu" method="_on_Button_pressed"]
 [connection signal="body_entered" from="CaveEntranceFinal" to="CaveEntranceFinal" method="_on_CaveEntranceFinal_body_entered"]
 [connection signal="animation_finished" from="CaveEntranceFinal/AnimationPlayer" to="CaveEntranceFinal" method="_on_AnimationPlayer_animation_finished"]

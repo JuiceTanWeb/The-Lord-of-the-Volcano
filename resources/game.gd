@@ -12,6 +12,7 @@ var position = Vector2.ZERO
 var has_sword = false
 var is_buff = false
 var final_boss = false
+var pause_scenes = ["Overworld", "Dungeon", "Boss"] 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_save()
@@ -27,7 +28,7 @@ func set_health(hp):
 #func _process(delta):
 #	pass
 func _input(event):
-	if event.is_action_pressed("ui_cancel") and get_tree().current_scene.get_path() == "/root/Overworld":
+	if event.is_action_pressed("ui_cancel") and pause_scenes.has(get_tree().get_current_scene().get_name()):
 		if get_tree().paused:
 			get_tree().paused = false
 			emit_signal("changed_pause_mode")
@@ -44,6 +45,10 @@ func load_save():
 		has_sword = vardata[0]
 		is_buff = vardata[1]
 		final_boss = vardata[2]
+	else:
+		has_sword = false
+		is_buff = false
+		final_boss = false
 
 func save_game():
 	var filetodelete = Directory.new()
