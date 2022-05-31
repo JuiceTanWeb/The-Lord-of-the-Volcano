@@ -4,7 +4,7 @@
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=2]
 [ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=3]
 [ext_resource path="res://resources/PauseMenu.gd" type="Script" id=4]
-[ext_resource path="res://.import/new_theme.tres" type="Theme" id=5]
+[ext_resource path="res://new_theme.tres" type="Theme" id=5]
 [ext_resource path="res://resources/PressStart2P-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://resources/pixil-frame-0.png" type="Texture" id=7]
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=8]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://.import/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
 [ext_resource path="res://resources/bufftush.png" type="Texture" id=2]
 [ext_resource path="res://End.gd" type="Script" id=3]
 

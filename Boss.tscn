@@ -15,7 +15,7 @@
 [ext_resource path="res://Lord.gd" type="Script" id=13]
 [ext_resource path="res://resources/Lord Boss Fight-[AudioTrimmer.com].wav" type="AudioStream" id=14]
 [ext_resource path="res://lord of volcano attacks/lov_side_charge.png" type="Texture" id=15]
-[ext_resource path="res://.import/new_theme.tres" type="Theme" id=16]
+[ext_resource path="res://new_theme.tres" type="Theme" id=16]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 40.0

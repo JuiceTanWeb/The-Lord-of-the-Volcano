@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://.import/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
 [ext_resource path="res://frames.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://Gameover.gd" type="Script" id=3]
 [ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=4]

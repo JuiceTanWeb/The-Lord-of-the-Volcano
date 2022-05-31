@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://.import/new_theme.tres" type="Theme" id=1]
+[ext_resource path="res://new_theme.tres" type="Theme" id=1]
 [ext_resource path="res://resources/TitleScreen.gd" type="Script" id=2]
 [ext_resource path="res://resources/intro for Lord of the Volcano-[AudioTrimmer.com].mp3" type="AudioStream" id=3]
 [ext_resource path="res://resources/start_sound.wav" type="AudioStream" id=4]
