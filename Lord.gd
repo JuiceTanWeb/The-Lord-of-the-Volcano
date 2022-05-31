@@ -52,7 +52,7 @@ func _physics_process(delta):
 					move_and_slide(global_position.direction_to(player.global_position) * 600)
 					distance_traveled_charge +=  600 * delta
 				else:
-					yield(get_tree().create_timer(1), "timeout")
+					yield(get_tree().create_timer(2), "timeout")
 					distance_traveled_charge = 0
 			SHOOTING:
 				invincible = false

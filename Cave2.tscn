@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://frames.tres" type="SpriteFrames" id=1]
+[ext_resource path="res://resources/armor icon.png" type="Texture" id=2]
 [ext_resource path="res://resources/old_man.png" type="Texture" id=8]
-[ext_resource path="res://resources/full_heart.png" type="Texture" id=11]
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=12]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=13]
 [ext_resource path="res://.import/new_theme.tres" type="Theme" id=14]
@@ -206,8 +206,8 @@ position = Vector2( 559, 508 )
 script = ExtResource( 15 )
 
 [node name="Sprite" type="Sprite" parent="Suit"]
-scale = Vector2( 5, 5 )
-texture = ExtResource( 11 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suit"]
 shape = SubResource( 5 )
