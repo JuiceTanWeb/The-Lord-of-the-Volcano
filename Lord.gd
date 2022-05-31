@@ -8,7 +8,7 @@ enum {SPAWNING, CHARGING, SHOOTING}
 onready var enemy = load("FinalEnemy.tscn")
 var phase = SPAWNING
 var in_battle = false
-var health = 10
+var health = 0
 var target = 0
 var invincible = true
 var player = null
@@ -55,11 +55,11 @@ func _physics_process(delta):
 					yield(get_tree().create_timer(1), "timeout")
 					distance_traveled_charge = 0
 			SHOOTING:
+				invincible = false
 				if time_to_spawn_lava:
 					var tile = lava.instance()
 					tile.global_position = player.global_position + Vector2(randi() % 800 - 400, randi() % 800 - 400)
-					owner.add_child(tile)
-					tile.set_owner(owner)
+					owner.call_deferred("add_child", tile)
 					time_to_spawn_lava = false
 
 func _on_Heart_start_battle():
@@ -77,8 +77,10 @@ func hit():
 		if health < 30:
 			phase = SHOOTING
 		if health <= 0:
-			print("done")
-			get_tree().change_scene("res://TitleScreen.tscn")
+			$Killed.play("boss_killed")
+			get_tree().paused = true
+			yield($Killed, "animation_finished")
+			get_tree().change_scene("res://Ayush.tscn")
 func spawn_enemy(type, times):
 	match type:
 		"Rock":

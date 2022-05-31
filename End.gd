@@ -1,10 +1,10 @@
-extends Area2D
+extends Node2D
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-signal start_battle
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,14 +16,6 @@ func _ready():
 #	pass
 
 
-
-func _on_Heart_body_entered(body):
-	if body.name == "Ayush":
-		Game.set_health(3)
-		$AnimationPlayer.play("boss_intro")
-		get_tree().paused = true
-		yield($AnimationPlayer, "animation_finished")
-		get_tree().paused = false
-		emit_signal("start_battle")
-		queue_free()
+func _on_Button_pressed():
+	$AnimationPlayer.play("legal stuff")
 	pass # Replace with function body.

@@ -7,17 +7,17 @@ extends Area2D
 
 var player_entered = false
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	set_process(false)
-	yield(get_tree().create_timer(1), "timeout")
-	set_process(true)
-	pass # Replace with fu:nction body.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func check():
 	if player_entered:
 		Game.set_health(Game.health - 0.5)
 		player_entered = false
+		for i in range(20):
+			if player_entered:
+				Game.set_health(Game.health - 0.5)
+				player_entered = false
+			yield(get_tree().create_timer(0.05), "timeout")
 #	pass
 
 
@@ -35,4 +35,9 @@ func _on_Lava_body_exited(body):
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	queue_free()
+	pass # Replace with function body.
+
+
+func _on_Timer_timeout():
+	check()
 	pass # Replace with function body.
