@@ -21,6 +21,9 @@ func _ready():
 	if Game.is_buff:
 		MAX_SPEED = 600
 		ACCEL = 600
+		$Rotate/Chungus.play("armor_default_front")
+	else:
+		$Rotate/Chungus.play("default_front")
 	pass # Replace with function body.
 
 
