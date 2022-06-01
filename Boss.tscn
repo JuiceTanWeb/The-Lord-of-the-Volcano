@@ -1,11 +1,10 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://resources/tiles.tres" type="TileSet" id=1]
 [ext_resource path="res://resources/Ayush.gd" type="Script" id=2]
 [ext_resource path="res://resources/player shoot sound-[AudioTrimmer.com].wav" type="AudioStream" id=3]
 [ext_resource path="res://frames.tres" type="SpriteFrames" id=4]
 [ext_resource path="res://Boss.gd" type="Script" id=5]
-[ext_resource path="res://lord of the volcano.png" type="Texture" id=6]
 [ext_resource path="res://Heart.gd" type="Script" id=7]
 [ext_resource path="res://resources/full_heart.png" type="Texture" id=8]
 [ext_resource path="res://resources/PauseMenu.gd" type="Script" id=9]
@@ -209,10 +208,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 15 ), ExtResource( 6 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Sprite:scale")
@@ -221,10 +220,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ Vector2( 10, 10 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 10, 10 ) ]
 }
 
 [sub_resource type="Animation" id=24]
