@@ -80,6 +80,7 @@ func hit():
 			$Killed.play("boss_killed")
 			get_tree().paused = true
 			yield($Killed, "animation_finished")
+			get_tree().paused = false
 			get_tree().change_scene("res://End.tscn")
 func spawn_enemy(type, times):
 	match type:
